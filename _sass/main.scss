@@ -1,0 +1,409 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "breakpoint";
+
+
+// Desktop Display Widths and Heights
+$max-content-width: 1440px;
+$min-content-width: 800px;
+$hpadding: 60px;
+
+$graphic-height: 400px;
+
+
+// Colors
+$primary: #528496;
+$primary-light: scale-lightness($primary, 35);
+
+$secondary: #fab417;
+$secondary-light: scale-lightness($secondary, 35);
+
+
+// Responsive Breakpoints
+$narrow: max-width 400px;
+$medium: (min-width 400px) (max-width 800px);
+$wide: min-width 801px;
+
+body {
+	font-family: Oxygen, sans-serif;
+	color: #666;
+}
+
+h1, h2 {
+	font-weight: 700;
+	margin-bottom: 1em;
+	line-height: 1.5em;
+}
+
+p {
+	margin-bottom: 1em;
+	line-height: 1.4em;
+}
+
+#slide-wrapper {
+	width: 100%;
+	
+	@include breakpoint($narrow) {
+		margin-top: 200px;
+	}
+	@include breakpoint($medium) {
+		margin-top: 200px;
+	}
+	@include breakpoint($wide) {
+		margin-top: 500px;
+		padding-bottom: 30px;
+		background: url("../img/linen3.jpg") 0 0 repeat fixed;
+	}
+	
+	section, footer {
+		margin-left: auto;
+		margin-right: auto;
+		
+		@include breakpoint($wide) {		
+			padding-left: $hpadding;
+			padding-right: $hpadding;
+			max-width: $max-content-width;
+		}
+	}
+}
+
+#hero {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+	background: url("../img/hero2.jpg") no-repeat scroll 0 0 transparent;
+	background-size: cover;
+	
+	
+	@include breakpoint($narrow) {
+		height: 200px;
+	}
+	@include breakpoint($medium) {
+		height: 200px;
+	}
+	@include breakpoint($wide) {
+		height: 500px;
+	}
+	
+	h1 {		
+		background-image: url("../img/ev-title.png");
+		background-color: rgba(255, 255, 255, 0.85);
+		background-repeat: no-repeat;
+		background-attachment: scroll;
+		
+		@include breakpoint($narrow) {
+			background-position: center center;
+			background-size: auto 40px;
+			height: 50px;
+		}
+		@include breakpoint($medium) {
+			background-position: center center;
+			background-size: auto 40px;
+			height: 50px;
+		}
+		@include breakpoint($wide) {
+			background-position: $hpadding center;
+			background-size: auto 60px;
+			height: 75px;
+		}
+		
+		width: 100%;
+		text-indent: -999px;
+	}
+	
+	h2 {
+		text-align: right;
+		color: #fff;
+		
+		@include breakpoint($narrow) {
+			padding-right: 10%;
+			font-size: 18px;
+			margin-top: 15px;
+		}
+		@include breakpoint($medium) {
+		
+			padding-right: 5%;
+			font-size: 22px;
+			margin-top: 40px;
+		}
+		@include breakpoint($wide) {	
+			padding-right: 10%;
+			font-size: 30px;
+			margin-top: 100px;
+		}
+	}
+}
+
+header {
+	background-color: #f5f5f5;	
+	
+	@include breakpoint($narrow) {
+		width: 100%;
+	}
+	@include breakpoint($medium) {
+		width: 100%;
+	}
+	@include breakpoint($wide) {
+		min-width: $min-content-width;
+	}
+}
+
+#top-nav {
+	color: $primary-light;
+	
+	@include breakpoint($narrow) {
+		padding: 7px;
+	}
+	@include breakpoint($medium) {
+		padding: 7px;
+	}
+	@include breakpoint($wide) {
+		max-width: $max-content-width;
+		padding: 15px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	a {
+		text-decoration: none;
+		color: inherit;
+		display: block;
+	}
+
+	ul {
+		list-style: none outside none;
+		margin: 0;
+		padding: 0;
+		
+		@include breakpoint($wide) {
+			text-align: center;
+		}
+		
+		li {
+			@include breakpoint($narrow) {
+				height: 17px;
+				margin-bottom: 5px;
+			}
+			@include breakpoint($medium) {
+				height: 17px;
+				margin-bottom: 5px;
+			}
+			@include breakpoint($wide) {
+				display: inline-block;
+				width: 18%;
+				margin-right: 2%;
+				vertical-align: top;
+				font-size: 18px;
+			
+				&:last-child {
+					margin-right: 0;
+				}
+			
+				&:hover {
+					color: #528496;
+				}
+			}
+			
+			i {
+				@include breakpoint($narrow) {
+					display: inline-block;
+					width: 20px;
+					margin-right: 10px;
+				}
+				@include breakpoint($medium) {
+					display: inline-block;
+					width: 20px;
+					margin-right: 10px;
+				}
+				@include breakpoint($wide) {
+					display: block;
+					margin-bottom: 15px;
+					font-size: 2em;
+				}
+			}
+		}
+	}
+}
+
+section {
+	border-bottom: 10px solid #f5f5f5;
+	background-color: #fff;
+	
+	@include breakpoint($narrow) {
+		padding-left: 2px;
+	}
+	@include breakpoint($medium) {
+		padding-left: 5px;
+	}
+	@include breakpoint($wide) {
+		overflow: hidden;
+	}
+	
+	&:last-of-type {
+		border-bottom: none;
+	}
+	
+	h1 {
+		color: $primary;
+		margin-top: 0;
+		
+		
+		@include breakpoint($narrow) {
+			font-size: 20px;
+			line-height: 1.2em;
+		}
+		@include breakpoint($medium) {
+			font-size: 22px;
+			line-height: 1.2em;
+		}
+		@include breakpoint($wide) {
+			font-size: 28px;
+		}
+	}
+}
+
+section.svc-overview {
+	@include breakpoint($narrow) {
+		padding-top: 5px;
+	}
+	@include breakpoint($medium) {
+		padding-top: 5px;
+	}	
+	@include breakpoint($wide) {
+		min-height: $graphic-height;
+	}
+
+	.content {
+		@include breakpoint($wide) {
+			padding-top: 70px;
+			float: right;
+			width: 45%;
+		}
+	}
+	
+	&:nth-child(odd) .content {
+		@include breakpoint($wide) {
+			float: left;
+		}
+	}
+	
+	.graphic {
+		background-size: cover;
+		background-color: #ddd;
+		background-position: center top;
+
+		@include breakpoint($narrow) {
+			height: 200px;
+		}
+		@include breakpoint($medium) {
+			@include breakpoint(max-height 400px) {
+				height: 200px;
+			}
+			@include breakpoint(min-height 401px) {
+				background-position: center center;
+				height: 290px;
+				max-width: 500px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+		@include breakpoint($wide) {
+			width: 45%;
+			height: $graphic-height;
+			border-width: 1px;
+			border-color: #eee;
+			border-style: none solid;
+	
+			float: left;
+			margin-right: 5%;
+		}
+	}
+	
+	&:nth-child(odd) .graphic {
+		@include breakpoint($wide) {
+			float: right;
+			margin-right: 0;
+			margin-left: 5%;
+		}
+	}
+
+	p {
+		
+		@include breakpoint($narrow) {
+			font-size: 14px;
+		}
+		@include breakpoint($medium) {
+			font-size: 18px;
+		}
+		@include breakpoint($wide) {
+			font-size: 22px;
+		}
+	}
+	
+	a.more-info {
+		color: $primary-light;
+		text-decoration: none;
+	}
+}
+
+
+#modeling {
+	// for ribbon
+	position: relative;
+}
+
+#team {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	
+	.member {
+		@include breakpoint($medium) {
+			min-height: 200px;
+			margin-bottom: 10px;
+			img {
+				height: 200px;
+				float: right;
+				margin-left: 5px;
+			}
+		}
+		@include breakpoint($wide) {
+			float: left;
+			margin-right: 5%;
+			width: 30%;			
+		
+			&:last-of-type {
+				margin-right: 0;
+			}
+			
+			img {
+				width: 55%;
+			}
+		}
+		
+		h2 {
+			margin-top: 1em;
+			margin-bottom: 1em;
+			font-size: 22px;
+			color: $secondary-light;
+		}
+		
+	}
+}
+
+footer {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: #f5f5f5;
+
+	p {
+		margin: 0;
+	}
+}
